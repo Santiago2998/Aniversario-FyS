@@ -1,5 +1,5 @@
 // ============================================
-// Tú y yo — interacciones
+// Tú y yo — interacciones corregidas para Web e iPad
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -58,7 +58,7 @@ function initEnvelope() {
   wrap.setAttribute('role', 'button');
   wrap.setAttribute('aria-label', 'Toca el sobre para abrir la carta');
 
-  const SETTLE_DELAY = 1250; // debe ser >= duración de las transiciones del sobre en el CSS
+  const SETTLE_DELAY = 1250;
 
   const open = () => {
     if (wrap.classList.contains('opened')) return;
@@ -79,10 +79,7 @@ function initEnvelope() {
   });
 }
 
-/* ---------- Rosa interactiva ----------
-   6 pétalos internos siempre se quedan (el corazón de la rosa).
-   Sólo los 3 pétalos exteriores se pueden quitar, uno a la vez,
-   y cada uno revela un mensaje distinto. */
+/* ---------- Rosa interactiva ---------- */
 function initRose() {
   const scene = document.getElementById('roseScene');
   const counter = document.getElementById('petalCount');
@@ -154,7 +151,7 @@ function initPetalModalClose() {
   });
 }
 
-/* ---------- Foto de Rapunzel: efecto de raspar para revelar ---------- */
+/* ---------- Foto de Rapunzel: efecto de raspar ---------- */
 function initScratchReveal() {
   const wrap = document.getElementById('scratchWrap');
   const canvas = document.getElementById('scratchCanvas');
@@ -166,11 +163,14 @@ function initScratchReveal() {
   let revealed = false;
 
   function sizeCanvas() {
-    const rect = img.getBoundingClientRect();
-    if (rect.width === 0 || rect.height === 0) return;
-    canvas.width = rect.width;
-    canvas.height = rect.height;
-    drawOverlay();
+    // Forzamos un pequeño delay para asegurar que el navegador ya renderizó las dimensiones de la imagen
+    setTimeout(() => {
+      const rect = img.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      drawOverlay();
+    }, 200);
   }
 
   function drawOverlay() {
@@ -201,7 +201,7 @@ function initScratchReveal() {
   function scratchAt(x, y) {
     ctx.globalCompositeOperation = 'destination-out';
     ctx.beginPath();
-    ctx.arc(x, y, 24, 0, Math.PI * 2);
+    ctx.arc(x, y, 28, 0, Math.PI * 2); // Aumentado a 28 para raspar más fácil en pantallas táctiles
     ctx.fill();
   }
 
@@ -215,14 +215,14 @@ function initScratchReveal() {
     const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
     let cleared = 0;
     let total = 0;
-    const step = 80; // muestrea para no leer cada pixel
+    const step = 80;
 
     for (let i = 3; i < data.length; i += step) {
       total++;
       if (data[i] < 40) cleared++;
     }
 
-    if (total && cleared / total > 0.55) {
+    if (total && cleared / total > 0.45) { // Bajado a 45% para evitar frustración en móviles
       revealed = true;
       wrap.classList.add('revealed');
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -244,20 +244,25 @@ function initScratchReveal() {
     scratchAt(p.x, p.y);
   });
 
+  const stopScratching = (e) => {
+    if (scratching) {
+      scratching = false;
+      wrap.classList.remove('scratching');
+      try { canvas.releasePointerCapture(e.pointerId); } catch(err) {}
+      checkRevealPercent();
+    }
+  };
+
   ['pointerup', 'pointerleave', 'pointercancel'].forEach((evt) => {
-    canvas.addEventListener(evt, () => {
-      if (scratching) {
-        scratching = false;
-        checkRevealPercent();
-      }
-    });
+    canvas.addEventListener(evt, stopScratching);
   });
 
-  if (img.complete && img.naturalWidth > 0) {
+  if (img.complete) {
     sizeCanvas();
   } else {
     img.addEventListener('load', sizeCanvas);
   }
+  
   window.addEventListener('resize', () => {
     if (!revealed) sizeCanvas();
   });
@@ -300,8 +305,8 @@ function initTogetherCounter() {
   const el = document.getElementById('togetherCounter');
   if (!el) return;
 
-  // Edita esta fecha con el día exacto de su primera cita / aniversario.
-  const START_DATE = new Date('2025-07-05T00:00:00');
+  // CORREGIDO: Cambiado a 2024 para coincidir con tu historia de otoño
+  const START_DATE = new Date('2024-07-05T00:00:00');
 
   const today = new Date();
   const diffMs = today - START_DATE;
