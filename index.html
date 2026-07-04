@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tú y yo</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div class="floating-petals" id="floatingPetals" aria-hidden="true"></div>
+
+        <header class="hero">
+            <p class="hero-eyebrow">Un año de nosotros</p>
+            <h1>Tú y yo</h1>
+            <br>
+            <p class="hero-sub">Un cuento que seguimos escribiendo</p>
+            <div class="hero-scroll" aria-hidden="true">↓</div>
+        </header>
+
+        <main>
+            <section class="letter">
+                <div class="envelope-wrap" id="envelopeWrap">
+                    <div class="envelope">
+                        <div class="envelope-back"></div>
+                        <div class="letter-paper" id="letterPaper">
+                    <p class="letter-heading">Carta de Santiago para Fresita</p>
+                    <p>Querida Fer Vieyra, me dijiste que escribiera algo memorable, así que aquí está
+                        mi recuerdo de la primera vez que te invité a salir. Era otoño del 2024, no tenía
+                        mucho que te había conocido, sólo sabía que tenía muchas ganas de conocerte cada día más.
+                        Ese día estaba nervioso por haberte invitado; todo esto cambió cuando vi tu sonrisa al ver el restaurante,
+                        porque para ese momento yo ya sabía que te encantaba Rapunzel, y ahí supe que este lugar era el indicado para ser
+                        nuestra primera cita. Platicamos todo el tiempo y nos conocimos más y más, me encantaba escucharte contar
+                        todas tus historias a la vez. Cuando acabó la cita nos regresamos felices ambos,
+                        y yo estaba tan emocionado porque me di cuenta de la gran niña que eres.
+                    </p>
+                    <p>Pero al final no supe valorar lo que tú me dabas como amiga y compañera de vida, terminé lastimándote y
+                        cometiendo muchos errores contigo; me arrepiento de cada uno de ellos. Me alegro mucho de que te hayas
+                        quedado conmigo y me hayas dado la oportunidad de demostrarte todo el amor que te tengo, no puedo creer
+                        lo afortunado que soy de tenerte a mi lado. Eres la mejor persona que he conocido y me siento muy feliz de poder
+                        compartir mi vida contigo, gracias por ser mi compañera de vida y por hacerme sentir tan especial cada día.
+                        Hoy cumplimos un año y quiero que sepas que te amo con todo mi corazón y que siempre estaré aquí para ti,
+                        apoyándote en todo lo que necesites y haciendo todo lo posible para hacerte feliz. Eres mi adoración, Fresita.
+                    </p>
+                    <p class="letter-signature">Con amor... Santiago</p>
+                        </div>
+                        <div class="envelope-pocket"></div>
+                        <div class="envelope-flap"></div>
+                            <span class="wax-seal">S&amp;F</span>
+                        </div>
+                        </div>
+                <p class="envelope-hint" id="envelopeHint">Toca el sobre para abrir la carta ✉</p>
+            </section>
+
+            <section class="rose-scene" id="roseScene">
+                <h2>Te amaré hasta que caiga el último pétalo de esta rosa</h2>
+                <div class="rose-jar">
+                    <div class="rose-glow"></div>
+                    <svg class="rose-svg" id="roseSvg" viewBox="0 0 240 270" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="petalGrad" cx="35%" cy="28%" r="85%">
+                                <stop offset="0%" stop-color="#ff9bb5"/>
+                                <stop offset="55%" stop-color="#d1466a"/>
+                                <stop offset="100%" stop-color="#7c1f38"/>
+                            </radialGradient>
+                            <radialGradient id="coreGrad" cx="38%" cy="26%" r="80%">
+                                <stop offset="0%" stop-color="#e2607f"/>
+                                <stop offset="100%" stop-color="#6e1c34"/>
+                            </radialGradient>
+                            <filter id="softShadow" x="-60%" y="-60%" width="220%" height="220%">
+                                <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#1a0a12" flood-opacity="0.4"/>
+                            </filter>
+                        </defs>
+
+                        <ellipse class="rose-shadow" cx="120" cy="255" rx="52" ry="9"/>
+                        <path class="rose-stem" d="M120 178 C 113 205, 113 225, 120 252" />
+                        <path class="rose-thorn" d="M117 198 L 105 191 L 110 202 Z" />
+                        <path class="rose-thorn rose-thorn--right" d="M123 220 L 136 215 L 130 226 Z" />
+                        <path class="rose-leaf" d="M118 205 C 95 200, 80 212, 72 230 C 96 234, 113 224, 118 205 Z" />
+                        <path class="rose-leaf rose-leaf--right" d="M122 192 C 145 186, 162 196, 168 214 C 144 218, 126 210, 122 192 Z" />
+
+                        <g class="rose-outer" id="roseOuter">
+                            <g transform="rotate(0 120 148)">
+                                <path class="petal-outer" data-petal="1" data-msg="1" d="M120 148 C 88 140, 76 100, 78 62 C 80 40, 100 26, 120 22 C 140 26, 160 40, 162 62 C 164 100, 152 140, 120 148 Z"/>
+                            </g>
+                            <g transform="rotate(120 120 148)">
+                                <path class="petal-outer" data-petal="2" data-msg="2" d="M120 148 C 88 140, 76 100, 78 62 C 80 40, 100 26, 120 22 C 140 26, 160 40, 162 62 C 164 100, 152 140, 120 148 Z"/>
+                            </g>
+                            <g transform="rotate(240 120 148)">
+                                <path class="petal-outer" data-petal="3" data-msg="3" d="M120 148 C 88 140, 76 100, 78 62 C 80 40, 100 26, 120 22 C 140 26, 160 40, 162 62 C 164 100, 152 140, 120 148 Z"/>
+                            </g>
+                        </g>
+
+                        <g class="rose-core" id="roseCore" filter="url(#softShadow)">
+                            <g transform="rotate(0 120 148)"><path class="petal-core" d="M120 148 C 106 143, 98 122, 108 104 C 113 95, 127 95, 132 104 C 142 122, 134 143, 120 148 Z"/></g>
+                            <g transform="rotate(60 120 148)"><path class="petal-core" d="M120 148 C 106 143, 98 122, 108 104 C 113 95, 127 95, 132 104 C 142 122, 134 143, 120 148 Z"/></g>
+                            <g transform="rotate(120 120 148)"><path class="petal-core" d="M120 148 C 106 143, 98 122, 108 104 C 113 95, 127 95, 132 104 C 142 122, 134 143, 120 148 Z"/></g>
+                            <g transform="rotate(180 120 148)"><path class="petal-core" d="M120 148 C 106 143, 98 122, 108 104 C 113 95, 127 95, 132 104 C 142 122, 134 143, 120 148 Z"/></g>
+                            <g transform="rotate(240 120 148)"><path class="petal-core" d="M120 148 C 106 143, 98 122, 108 104 C 113 95, 127 95, 132 104 C 142 122, 134 143, 120 148 Z"/></g>
+                            <g transform="rotate(300 120 148)"><path class="petal-core" d="M120 148 C 106 143, 98 122, 108 104 C 113 95, 127 95, 132 104 C 142 122, 134 143, 120 148 Z"/></g>
+                            <circle class="rose-heart" cx="120" cy="140" r="7"/>
+                        </g>
+                    </svg>
+                </div>
+                <p class="rose-caption">Quedan <span id="petalCount">3</span> pétalos mágicos. Cada uno guarda un mensaje: tócalos.</p>
+            </section>
+
+            <section class="rapunzel-scene">
+                <div class="lanterns" id="lanterns" aria-hidden="true"></div>
+                <figure class="rapunzel-frame">
+                    <div class="scratch-wrap" id="scratchWrap">
+                        <img src="rapunzel.png" alt="Escena de Rapunzel" class="rapunzel" id="rapunzelImg">
+                        <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+                        <p class="scratch-hint" id="scratchHint">Raspa para revelar ✨</p>
+                    </div>
+                    <figcaption>“Tú eres mi nuevo sueño” — Aunque ya mi sueño es una realidad</figcaption>
+                </figure>
+            </section>
+
+            <section class="mosaic-section">
+                <h2>Nuestros momentos</h2>
+                <p class="mosaic-sub">Un año, mil recuerdos.</p>
+                <div class="mosaic-grid" id="mosaicGrid">
+                    <figure class="mosaic-item mosaic-item--tall"><img src="fotos/foto1.jpg" alt="Nosotros 1" loading="lazy"></figure>
+                    <figure class="mosaic-item"><img src="fotos/foto2.jpg" alt="Nosotros 2" loading="lazy"></figure>
+                    <figure class="mosaic-item"><img src="fotos/foto3.jpg" alt="Nosotros 3" loading="lazy"></figure>
+                    <figure class="mosaic-item mosaic-item--wide"><img src="fotos/foto4.jpg" alt="Nosotros 4" loading="lazy"></figure>
+                    <figure class="mosaic-item"><img src="fotos/foto5.jpg" alt="Nosotros 5" loading="lazy"></figure>
+                    <figure class="mosaic-item mosaic-item--tall"><img src="fotos/foto6.jpg" alt="Nosotros 6" loading="lazy"></figure>
+                    <figure class="mosaic-item"><img src="fotos/foto7.jpg" alt="Nosotros 7" loading="lazy"></figure>
+                    <figure class="mosaic-item mosaic-item--wide"><img src="fotos/foto8.jpg" alt="Nosotros 8" loading="lazy"></figure>
+                </div>
+            </section>
+
+            <section class="closing">
+                <p class="closing-text">Feliz aniversario, Fresita.</p>
+                <p class="closing-date" id="togetherCounter"></p>
+            </section>
+        </main>
+
+        <div class="lightbox" id="lightbox" aria-hidden="true">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+            <img src="" alt="" id="lightboxImg">
+        </div>
+
+        <div class="message-modal" id="messageModal" aria-hidden="true">
+            <div class="message-modal-card">
+                <button class="message-modal-close" id="messageModalClose" aria-label="Cerrar">✕</button>
+                <p class="message-modal-text" id="messageModalText"></p>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
